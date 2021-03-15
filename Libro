@@ -1,0 +1,263 @@
+\documentclass[]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{enumitem}
+\usepackage{varwidth}
+\usepackage{tasks}
+
+\begin{document}
+\paragraph{Demostración.}
+
+
+
+\begin{enumerate}
+
+    \item $1 = P(\Omega) = P(\Omega\cup\Phi\cup\Phi\cup\cdots) = P(\Omega)+P(\Phi)+P(\Phi)+\cdots$. Entonces $0 \geq P(\Phi) \geq 0$ de donde se concluye $P(\Phi) = 0$.
+    
+    \item $A \cup B = A \, \cup\,B\, \cup \,\Phi \, \cup\, \Phi\, \cup\, \cdots$. Por la propiedad iii) de medida de probabilidad y el resultado anterior, se obtiene lo pedido.
+    
+    \item $P(A) + P(A^{c}) = P(A \cup A^{c}) = P(\Omega) = 1 $
+    
+    \item $B = A \cup (B-A)$. Por 2. Se sigue que $P(B) = P(A)+P(B-A) \geq P(A)$.
+    
+    \item Como ejercicio. 
+    
+    \item Sean $C_{1} = A_{1}, C_{2} = A_{2} - A_{1}, \cdots, A_{n} - A_{n-1} $. Es claro que: 
+    
+    \begin{center}
+        $\bigcup\limits_{n=1}^{\infty} C_{n}$ = $\bigcup\limits_{n=1}^{\infty} A_{n}$
+    \end{center}
+    
+    Además como $C_{i} \cap C_{j} = \Phi$ para todo $i \neq j$, se sigue de la propiedad iii) de medida de probabilidad que: 
+    
+    \begin{equation*} 
+    \begin{split}
+    P(\bigcup\limits_{n=1}^{\infty} A_{n}) & = P(\bigcup\limits_{n=1}^{\infty} C_{n}) \\
+    & = \sum\limits_{n=1}^{\infty} P(C_{n}) \\
+    & = \lim_{n \to \infty} \sum\limits_{k=1}^{n} P(C_{k}) \\
+    & = \lim_{n \to \infty} P(\bigcup\limits_{k=1}^{n} C_{k}) \\
+    & = \lim_{n \to \infty} P(A_{n})
+    \end{split}
+    \end{equation*}
+    
+    \item Como ejercicio. 
+    
+\end{enumerate}
+
+$\blacksquare$
+
+
+
+\paragraph{Nota 1.37} Sean A, B y C eventos. Entonces, aplicando el teorema anterior se obtiene:
+
+    \begin{equation*}
+    \begin{split}
+    P(A \cup B \cup C) & = P(A) + P(B \cup C) - P(A \cap (B \cup C)) \\
+    & = \!\begin{multlined}[t]
+    P(A) + P(B) + P(C) - P(B \cap C) - P(A \cap B) \\
+                - P(A \cap C) + P(A \cap B \cap C) 
+    \end{multlined}
+    \end{split}
+    \end{equation*}
+    
+\begin{flushleft}
+Haciendo un razonamiento de tipo inductivo, se deduce que si $A_{1}, A_{2}, \cdots, A_{n}$ son eventos, entonces: 
+\end{flushleft}
+
+\begin{flushleft}
+    $P(A_{1} \cup A_{2} \cup \cdots \cup A_{n})$ 
+\end{flushleft}
+    
+    \begin{equation*}
+    \begin{multlined}
+    = \sum\limits_{i=1}^{\infty} P(A_{i}) - \sum\limits_{i_{1} < i_{2}} P(A_{i_{1}} \cap A_{i_{2}}) + \cdots + (-1)^{r} \sum\limits_{i_{1} < i_{2} < \cdots < i_{r}} P(A_{i_{1}} \cap A_{i_{2}} \cap \cdots \cap A_{i_{r}} )\\
+    + \cdots + (-1)^{n+1}P(A_{1} \cap A_{2} \cap \cdots \cap A_{n})
+     \end{multlined}
+     \end{equation*}
+     
+\begin{flushleft}
+    donde la suma 
+\end{flushleft}
+     
+     \begin{center}
+         $\sum\limits_{i_{1} < i_{2} < \cdots < i_{r}} P(A_{i_{1}} \cap A_{i_{2}} \cap \cdots \cap A_{i_{r}})$
+     \end{center}
+     
+\begin{flushleft}
+     
+     se toma sobre todos los posibles subconjuntos de tamaño r del conjunto\\
+     \{1,2,$\cdots$,n\}.
+
+
+\paragraph{Nota 1.38} Sean \{$\Omega, \mathcal{F}, P\}$ un espacio de probabilidad con $\Omega$ finito o numerable y $\mathcal{F} = \wp(\Omega)$. Sea $\Phi \neq A \in \mathcal{F}$. Es claro que 
+
+\begin{center}
+    $A = \bigcup\limits_{\omega \in A} \{\omega\}$
+\end{center}
+
+y por consiguiente
+
+\begin{center}
+    $P(A) = \sum\limits_{\omega \in A} P\{\omega\}$
+\end{center}
+
+donde $P(\omega) := P(\{\omega\})$. Esto es P está completamente determinada por $p_{j} := P(\omega_{j})$ donde los $\omega_{j}, j = 1,2, \cdots,$ denotan los elementos de $\Omega$. 
+\end{flushleft}
+
+Es claro que el vector $p := (p_{1}, p_{2}, \cdots)$ de dimensión $|\Omega|$, donde $|\Omega|$ denota el número de elementos de $\Omega$, satisface las condiciones:
+    \begin{center}
+    \begin{varwidth}{\textwidth}
+    \begin{enumerate}
+        \item $p_{j} \geq 0$
+        \item $\sum\limits_{j=1}^{\infty} p_{j} = 1$
+    \end{enumerate}
+    \end{varwidth}
+    \end{center}
+    
+
+\begin{flushleft}
+     Un vector p que satisface las condiciones anteriores se llama vector de probabilidades. 
+\end{flushleft}
+
+\paragraph{Nota 1.39} Sean $\Phi \neq \Omega = \{\omega_{1}, \omega_{2}, \cdots\}$ un conjunto finito o numerable, $\wp(\Omega)$ la $\sigma$- álgebra total sobre $\Omega$ y p un vector de probabilidades $|\Omega|$ - dimensional. Es fácil ver que la aplicación P definida sobre $\wp(\Omega) por:$ 
+
+\begin{align*}
+    P(\Phi) &= 0 \\
+    P(\omega_{j}) &= p_{j}\: , \:j = 1,2,\cdots\\
+    P(A) &= \sum\limits_{\{j : w_{j}\in A\}} p_{j}\: para\: \Phi \neq A \subseteq \Omega
+\end{align*}
+
+\begin{flushleft}
+     Es una medida de probabilidad. El espacio de probabilidad $(\Omega, \wp(\Omega), P)$ se llama espacio de probabilidad discreto.
+\end{flushleft}
+
+
+\paragraph{Ejemplo 1.40} Sea $(\Omega, \mathcal{F}, P)$ un espacio de probabilidad con:
+
+\begin{align*}
+    \omega &= \{1,2,3,4\}\\
+    \mathcal{F} &= \{\Phi, \Omega, \{1\}, \{2,3\}, \{4\}, \{1,2,3\}, \{2,3,4\}, \{1,4\}\}\\
+    P(\{1\}) &= \frac{1}{4}, \;\;\;\;\; P(\{2,3\}) = \frac{1}{2} \;\;\;\;\; y \;\;\;\;\; P(\{4\}) = \frac{1}{4} 
+\end{align*}
+
+\begin{flushleft}
+    Entonces: 
+\end{flushleft}
+
+\begin{align*}
+    P(\{1,2,3\}) &= \frac{3}{4}\\
+    P(\{2,3,4\}) &= \frac{3}{4}\\
+    P(\{1,4\}) &= \frac{1}{2}. \;\;\;\; \blacktriangle
+\end{align*}
+
+\newpage
+ \paragraph{Demostración.}
+ 
+ \begin{enumerate}
+     \item Es claro a partir de la definicion de varianza y de las propiedades del valor esperado. 
+     
+     \item 
+     \begin{align*}
+        Var(\alpha) = E(\alpha - E(\alpha))^{2} = E(0) = 0 
+     \end{align*}
+     
+     \item 
+     \begin{equation*}
+     \begin{split}
+         Var(\alpha X) &= E[\alpha X - E(\alpha X)]^{2}\\
+         & = E(\alpha X - \alpha E X)^{2}\\
+         & = \alpha^{2}E(X - EX)^{2}\\
+         & = \alpha^{2}VarX
+     \end{split}
+     \end{equation*}
+     
+     \item
+     \begin{equation*}
+     \begin{split}
+         Var(X + B) &= E[(X + B) - E(X + B)]^{2}\\
+         & = E[X + B - EX - B]^{2}\\
+         & = Var(X)
+     \end{split}
+     \end{equation*}
+     
+     \item \vspace{\baselineskip} %%no supe como dejar este espacio en blanco despues del 5. y antes del a)
+     \begin{description} 
+     \item a) Si X = EX con probabilidad 1, es claro que Var(X) = 0.
+     \item b) Supongase que Var(X) = 0, y sea a := EX. \newline
+        Si $P(X = a) < 1$ entonces, existe $c > 0$ tal que %en esta linea tampoco supe dejar esta y la anterior linea alineadas
+        \begin{align*}
+            P((X - a)^{2} > c) > 0.
+        \end{align*}
+        puesto que 
+        \begin{align*}
+            (x - a)^{2} &\geq E(c\mathcal{X}_{\{(x-a)^{2}>c\}})\\
+            Var(X) &\geq cE(\mathcal{X}_{\{(x-a)^{2}>c\}})\\
+            Var(X) &\geq cP((X - a)^{2} > c) > 0
+        \end{align*}
+        
+        lo cual es una contradicción.\\*
+        Por lo tanto P(X = EX) = 1.
+     \end{description}
+ \end{enumerate}
+$\blacksquare$
+
+Para el cálculo de la varianza de una variable aleatoria resulta muy útil el resultado siguiente. 
+
+\paragraph{Lema 2.56} Sea X una variable aleatoria cuyo valor esperado existe. Entonces: 
+
+\begin{align*}
+    Var(X) = EX^{2} - (EX)^{2}
+\end{align*}
+
+\newpage
+\paragraph{Demostración.}
+\begin{equation*}
+    \begin{split}
+        Var(X) &= E(X - EX)^{2}\\
+        &= E(X^{2} - 2XEX + (EX)^{2})\\
+        &= EX^{2} - 2EXEX + E(EX)^{2}\\
+        &= EX^{2} - 2(EX)^{2} + (EX)^{2}\\
+        &= EX^{2} -(EX)^{2}
+    \end{split}
+\end{equation*}
+$\blacksquare$
+
+\paragraph{Ejemplo 2.57} Supóngase que se lanza un dado corriente una vez y sea X la variable aleatoria que denota el resultado obtenido. Se sabe que EX = $\frac{21}{6}$ y como
+\begin{align*}
+    EX^{2} = \sum\limits_{k=1}^{6} \frac{1}{6}k^{2} = \frac{91}{6}, 
+\end{align*}
+entonces, 
+\begin{align*}
+    Var(X) = \frac{35}{12} \approx 2.92. \;\;\;\; \blacktriangle
+\end{align*}
+
+\paragraph{Ejemplo 2.58} Sea X como en el ejemplo 2.42, entonces: 
+\begin{equation*}
+    EX^{2} = P(X = 1) = P(A).
+\end{equation*}
+Por lo tanto: 
+\begin{equation*}
+\begin{split}
+    Var(X) &= P(A) - [P(A)]^{2.}\\
+    &= P(A)P(A^{c}). \;\;\; \blacktriangle
+\end{split}
+\end{equation*}
+
+\paragraph{Ejemplo 2.59} Sea X como en el ejemplo 2.43, en este caso: 
+
+\begin{equation*}
+    \begin{split}
+        EX^{2} &= \sum\limits_{k=0}^{\infty} k^{2}e^{-3}\frac{3^{k}}{k!}\\
+        &= e^{-3}\sum\limits_{k=1}^{\infty}k\frac{3^{k}}{(k - 1)!}\\
+        &= e^{-3}\sum\limits_{j=0}^{\infty}(j + 1)\frac{3^{j+1}}{j!}\\
+        &= e^{-3}[9e^{3} + 3e^{3}]\\
+        &= 12.
+    \end{split}
+\end{equation*}
+
+Por lo tanto, 
+
+\begin{equation*}
+    Var(X) = 12 - 9 = 3. \;\;\; \blacktriangle
+\end{equation*}
+\end{document}
